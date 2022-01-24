@@ -54,6 +54,6 @@ plt.plot(x, y, color='#58b970', label='Regression Line')
 plt.scatter(hour, hits, c='#ef5423', label='data points')
 
 plt.xlabel('Head Size in cm')
-plt.ylabel('Brain Weight in grams')
+plt.ylabel('Weight in grams')
 plt.legend()
 plt.show()
