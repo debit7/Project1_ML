@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import math
 import operator
-import matplotlib.pyplot as plt
 import Functions as func
 with open("project1-hits.txt") as f:
     array = f.read().splitlines()
@@ -21,6 +20,8 @@ for items in array:
         hits.append(int(views))
 print(hour)
 print(hits)
+
+
 # calculate mean of x & y using an inbuilt numpy method mean()
 # mean_x = np.mean(hour)
 # mean_y = np.mean(hits)
@@ -56,6 +57,27 @@ x = np.linspace (min_x, max_x, 100)
 y = c + m * x
 y1=c+m*108
 print(y1)
+
+##########################################docs
+sum_of_x=func.SUM_List(hour)
+sum_of_y=func.SUM_List(hits)
+
+sum_of_pair=func.SUM_of_Pair(hour,hits)
+
+sum_of_square_x=func.SUM_of_square(hour)
+sum_of_square_y=func.SUM_of_square(hits)
+
+N=len(hour)
+
+slope=((N*sum_of_pair)-(sum_of_x*sum_of_y))/((N*sum_of_square_x)-(sum_of_x*sum_of_x))
+
+intercept=(sum_of_y-(slope*sum_of_x))/N
+print(slope,intercept)
+
+Y=intercept+slope*700
+print(Y)
+###########################################
+
 plt.plot(x, y, color='#58b970', label='Regression Line')
 plt.scatter(hour, hits, c='#ef5423', label='data points')
 
