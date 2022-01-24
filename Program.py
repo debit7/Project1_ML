@@ -59,7 +59,12 @@ print(y1)
 plt.plot(x, y, color='#58b970', label='Regression Line')
 plt.scatter(hour, hits, c='#ef5423', label='data points')
 
+<<<<<<< HEAD
 plt.xlabel('Hours')
 plt.ylabel('Hits')
+=======
+plt.xlabel('Head Size in cm')
+plt.ylabel('Weight in grams')
+>>>>>>> 7db68462a0d093ed830d0f812f4c0f1c643102a4
 plt.legend()
 plt.show()
