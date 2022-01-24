@@ -43,17 +43,23 @@ c = mean_y - (m * mean_x)
 print (f'm = {m} \nc = {c}')
 
 # plotting values and regression line
-max_x = np.max(hour) + 100
-min_x = np.min(hits) - 100
+max_x = max(hour) + 400
+min_x = min(hits) - 400
+
 
 # calculating line values x and y
 x = np.linspace (min_x, max_x, 100)
-y = c + m * x
+# x1=func.linspace(min_x, max_x, 100)
+# print(isinstance(x))
+# print(isinstance(x1))
 
+y = c + m * x
+y1=c+m*108
+print(y1)
 plt.plot(x, y, color='#58b970', label='Regression Line')
 plt.scatter(hour, hits, c='#ef5423', label='data points')
 
-plt.xlabel('Head Size in cm')
-plt.ylabel('Brain Weight in grams')
+plt.xlabel('Hours')
+plt.ylabel('Hits')
 plt.legend()
 plt.show()
