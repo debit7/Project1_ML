@@ -5,6 +5,13 @@ import numpy as np
 import math
 import operator
 import Functions as func
+import seaborn as sns
+from array import array
+
+#create scatterplot with regression line
+#The file project1-hits.txt is opened using using open function from python, and all the lines are inside the file  as a seprate list.
+#further , the data hour and hits seprated by comma again seprated in two different list . hour[] and list[].
+# at the same time "nan" values are ignored while appending in the list.
 with open("project1-hits.txt") as f:
     array = f.read().splitlines()
 
@@ -59,6 +66,10 @@ y1=c+m*108
 print(y1)
 
 ##########################################docs
+
+# The function are created to do a good programming practice . SUM_List can return the overall sum of Data inside the list.
+#Sum_of_Pair function receives two list and can perform cross multiplication between two list of data, having same index. And return the overall sum.
+#Similarly, the function Sum_of_square return the sum of square of data inside the list.
 sum_of_x=func.SUM_List(hour)
 sum_of_y=func.SUM_List(hits)
 
@@ -77,8 +88,15 @@ print(slope,intercept)
 Y=intercept+slope*700
 print(Y)
 ###########################################
+max_x = max(hour) + 400
+min_x = min(hits) - 400
+x = func.linspace (min_x, max_x, 100)
 
+# linespace function  is used to create an evenly spaced sequence in a specified interval.
+# to get values for y we need to convert the numpy array for the list, thats why numpy library is used in our code.
+y=intercept+slope*np.array(x)
 plt.plot(x, y, color='#58b970', label='Regression Line')
+# plt.regplot(hour, hits, ci=None,label='Regression Line')
 plt.scatter(hour, hits, c='#ef5423', label='data points')
 
 
