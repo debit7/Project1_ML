@@ -1,0 +1,33 @@
+---
+title: "Validation Using R"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#reading and cleaning data
+library(dplyr)
+data = read.table("project1-hits.txt",header=TRUE,sep=",")
+datas <- data %>% filter(X2272!="NaN")
+dim(datas)
+```
+
+```{r}
+#training the model using linear regression function
+model.1 <- lm(X2272~X1, data=datas)
+summary(model.1)
+```
+
+
+```{r}
+# Fitting linear regression model
+plot(fitted(model.1))
+#qqnorm(resid(model.1))
+```
+
+
