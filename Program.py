@@ -18,7 +18,7 @@ for items in array:
     if views != "nan":
         hour.append(int(hours))
         hits.append(int(views))
-print(hour)
+                        print(hour)
 print(hits)
 
 
